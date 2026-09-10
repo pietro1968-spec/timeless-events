@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Il Tuo Giorno Perfetto Inizia Qui! | Timeless Events",
+      "hasCanvas": false,
+      "bodyTextLen": 2991,
+      "bodyTextHash": "ac2f51c12aae140ebb1386da2ae6cfef2f8c775c454bd9bb3f732aa1409619b8",
+      "bodyTextPrefix": "TIMELESS Events HOME CHI SONO SERVIZI PORTFOLIO SOSTENIBILITÀ RI",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Il Tuo Giorno Perfetto Inizia Qui! | Timeless Events",
+      "hasCanvas": false,
+      "bodyTextLen": 2925,
+      "bodyTextHash": "1bd3a2fc85d1b85f365dca84f590dc79520484b9132de4c71ef1532b05668edf",
+      "bodyTextPrefix": "TIMELESS Events WEDDING PLANNER Timeless Events Tavares Trasform",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

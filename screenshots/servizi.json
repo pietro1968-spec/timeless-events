@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/servizi",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Servizi Esclusivi | Timeless Events",
+      "hasCanvas": false,
+      "bodyTextLen": 3472,
+      "bodyTextHash": "7f45a6bd4ca258cab5551897e97af61ce43fced4e2e91aebcc7b0f9205a9d2fa",
+      "bodyTextPrefix": "TIMELESS Events HOME CHI SONO SERVIZI PORTFOLIO SOSTENIBILITÀ RI",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/servizi.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Servizi Esclusivi | Timeless Events",
+      "hasCanvas": false,
+      "bodyTextLen": 3406,
+      "bodyTextHash": "75023b1430b4df143227433fec50f69362950922d2c1556bb8ffbcc009a53704",
+      "bodyTextPrefix": "TIMELESS Events Ogni evento è unico e indimenticabile. Esplora l",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/servizi-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/servizi.json"
+}
