@@ -37,6 +37,7 @@ const empty: Fields = {
 export function QuoteForm({ compact }: { compact?: boolean }) {
   const [fields, setFields] = useState<Fields>(empty);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   function update<K extends keyof Fields>(key: K, value: Fields[K]) {
     setFields((f) => ({ ...f, [key]: value }));
@@ -59,29 +60,64 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
     ].join("\n");
   }
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!fields.privacy) return;
+    setError("");
 
-    const payload = { ...fields, createdAt: new Date().toISOString() };
+    if (!fields.privacy) {
+      setError("Per inviare la richiesta è necessario accettare il trattamento dei dati.");
+      return;
+    }
+
+    const payload = {
+      ...fields,
+      createdAt: new Date().toISOString(),
+    };
+
     const prev = JSON.parse(
-      localStorage.getItem("te-quotes") || "[]"
+      localStorage.getItem("te-quotes") || "[]",
     ) as unknown[];
+
     localStorage.setItem(
       "te-quotes",
-      JSON.stringify([payload, ...prev].slice(0, 20))
+      JSON.stringify([payload, ...prev].slice(0, 20)),
     );
-    setSent(true);
 
-    const body = generateSummaryText();
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      `Preventivo ${fields.eventType} — ${fields.name}`
-    )}&body=${encodeURIComponent(body)}`;
+    const formData = new FormData(e.currentTarget);
+    const encoded = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      if (typeof value === "string") {
+        encoded.append(key, value);
+      }
+    });
+
+    encoded.set("form-name", "quote-request");
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encoded.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Invio non riuscito");
+      }
+
+      setSent(true);
+    } catch {
+      setError(
+        "Non è stato possibile inviare la richiesta. Controlla la connessione e riprova.",
+      );
+    }
   }
 
   if (sent) {
     const waText = encodeURIComponent(
-      `Ciao! Ho appena compilato la richiesta di preventivo sul sito per un ${fields.eventType}.\n\nEcco i dettagli:\n- Nome: ${fields.name}\n- Data: ${fields.date || "da definire"}\n- Ospiti: ${fields.guests || "da definire"}`
+      `Ciao! Ho appena inviato la richiesta di preventivo sul sito per un ${fields.eventType}.\n\nEcco i dettagli:\n- Nome: ${fields.name}\n- Data: ${fields.date || "da definire"}\n- Ospiti: ${fields.guests || "da definire"}`,
     );
 
     return (
@@ -89,14 +125,21 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700">
           ✓
         </div>
-        <h3 className="font-serif text-2xl text-ink">Richiesta Pronta!</h3>
+
+        <h3 className="font-serif text-2xl text-ink">
+          Richiesta inviata!
+        </h3>
+
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">
-          Si è aperto il tuo client di posta predefinito per inviare la richiesta a{" "}
-          <strong className="text-ink">{SITE.email}</strong>.
+          Abbiamo ricevuto correttamente la tua richiesta di preventivo.
+          Ti ricontatteremo al più presto all&apos;indirizzo email indicato.
         </p>
+
         <p className="mx-auto mt-2 max-w-md text-xs text-stone-500">
-          Se preferisci una risposta ancora più rapida, puoi inviarci la tua richiesta direttamente su WhatsApp.
+          Per una risposta ancora più rapida, puoi anche contattarci
+          direttamente su WhatsApp.
         </p>
+
         <div className="mt-6 flex flex-wrap justify-center gap-4">
           <a
             href={`https://wa.me/${SITE.whatsapp}?text=${waText}`}
@@ -106,10 +149,12 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           >
             Invia via WhatsApp
           </a>
+
           <button
             type="button"
             onClick={() => {
               setSent(false);
+              setError("");
               setFields(empty);
             }}
             className="inline-flex items-center rounded-full border border-line bg-ivory px-6 py-3 text-xs font-semibold uppercase tracking-widest text-ink transition-colors hover:bg-stone-100"
@@ -126,15 +171,24 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
 
   return (
     <form
+      name="quote-request"
+      method="POST"
+      data-netlify="true"
       onSubmit={onSubmit}
       className="rounded-2xl border border-line bg-paper p-6 shadow-sm sm:p-8"
     >
+      <input type="hidden" name="form-name" value="quote-request" />
+
       {!compact && (
         <div className="mb-6">
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-amber-600">
             Preventivo Gratuito
           </p>
-          <h2 className="mt-2 font-serif text-3xl text-ink">Raccontaci il tuo evento</h2>
+
+          <h2 className="mt-2 font-serif text-3xl text-ink">
+            Raccontaci il tuo evento
+          </h2>
+
           <p className="mt-2 text-sm text-muted">
             Risposta personalizzata, rapida e senza alcun impegno.
           </p>
@@ -146,6 +200,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           Nome e cognome *
           <input
             required
+            name="name"
             placeholder="Es. Maria Rossi"
             className={fieldClass}
             value={fields.name}
@@ -158,6 +213,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           <input
             required
             type="email"
+            name="email"
             placeholder="nome@esempio.it"
             className={fieldClass}
             value={fields.email}
@@ -170,6 +226,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           <input
             required
             type="tel"
+            name="phone"
             placeholder="+39 333 1234567"
             className={fieldClass}
             value={fields.phone}
@@ -180,6 +237,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
         <label className="text-xs font-medium tracking-wide text-ink-soft">
           Tipo di evento
           <select
+            name="eventType"
             className={fieldClass}
             value={fields.eventType}
             onChange={(e) => update("eventType", e.target.value)}
@@ -196,6 +254,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           Data prevista
           <input
             type="date"
+            name="date"
             className={fieldClass}
             value={fields.date}
             onChange={(e) => update("date", e.target.value)}
@@ -205,6 +264,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
         <label className="text-xs font-medium tracking-wide text-ink-soft">
           Città / Location
           <input
+            name="city"
             placeholder="Es. Milano, Lago di Como..."
             className={fieldClass}
             value={fields.city}
@@ -215,6 +275,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
         <label className="text-xs font-medium tracking-wide text-ink-soft sm:col-span-2">
           Numero stimato di ospiti
           <input
+            name="guests"
             placeholder="Es. 80 - 100"
             className={fieldClass}
             value={fields.guests}
@@ -226,6 +287,7 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           Messaggio o note speciali *
           <textarea
             required
+            name="message"
             rows={5}
             placeholder="Descrivi la tua idea, le tue preferenze sui servizi (catering, floral design, abito, ecc.) o qualsiasi dettaglio desideri condividere..."
             className={fieldClass}
@@ -234,21 +296,32 @@ export function QuoteForm({ compact }: { compact?: boolean }) {
           />
         </label>
 
-        <div className="sm:col-span-2 mt-2">
-          <label className="flex items-start gap-2.5 text-xs text-stone-600 cursor-pointer">
+        <div className="mt-2 sm:col-span-2">
+          <label className="flex cursor-pointer items-start gap-2.5 text-xs text-stone-600">
             <input
               type="checkbox"
+              name="privacy"
+              value="yes"
               required
               checked={fields.privacy}
               onChange={(e) => update("privacy", e.target.checked)}
               className="mt-0.5 rounded border-line text-amber-600 focus:ring-amber-500"
             />
+
             <span>
-              Acconsento al trattamento dei dati personali ai sensi del Regolamento GDPR al solo scopo di ricevere il preventivo richiesto.
+              Acconsento al trattamento dei dati personali ai sensi del
+              Regolamento GDPR al solo scopo di ricevere il preventivo
+              richiesto.
             </span>
           </label>
         </div>
       </div>
+
+      {error ? (
+        <p className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </p>
+      ) : null}
 
       <button
         type="submit"

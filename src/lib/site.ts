@@ -24,10 +24,10 @@ export const NAV = [
 ] as const;
 
 export const HERO_SLIDES = [
-  "/images/hero-1.jpg",
-  "/images/hero-2.jpg",
-  "/images/hero-3.jpg",
-  "/images/dress-2.jpg",
+  "/images/home-hero-01.jpg",
+  "/images/home-hero-02.jpg",
+  "/images/home-hero-03.jpg",
+  "/images/home-hero-04.jpg",
 ];
 
 export type Service = {
@@ -57,7 +57,11 @@ export const FEATURED_SERVICES: Service[] = [
       "Che siate amanti della cucina italiana o internazionale, che preferiate un buffet o un pranzo servito, noi sapremo accontentarvi. Consulenza gratuita e senza impegno.",
     ],
     image: "/images/buffet.jpg",
-    gallery: ["/images/buffet.jpg", "/images/catering.jpg", "/images/fine-dining.jpg", "/images/table-close.jpg"],
+    gallery: [
+      "/images/buffet.jpg",
+      "/images/catering.jpg",
+      "/images/fine-dining.jpg",
+          ],
   },
   {
     slug: "location",
@@ -94,7 +98,12 @@ export const FEATURED_SERVICES: Service[] = [
       "Non solo location e dettagli: la tua wedding planner ti guiderà anche nella scelta dell’abito perfetto per il tuo giorno più bello.",
     ],
     image: "/images/dress-2.jpg",
-    gallery: ["/images/dress-2.jpg", "/images/bride.jpg", "/images/groom.jpg", "/images/ceremony2.jpg"],
+    gallery: [
+      "/images/dress-2.jpg",
+      "/images/bride.jpg",
+      "/images/groom.jpg",
+      "/images/ceremony2.jpg",
+    ],
   },
 ];
 
@@ -104,13 +113,19 @@ export const SERVICES: Service[] = [
     slug: "cerimonie",
     title: "Allestimenti Cerimonia",
     short: "Scopri",
-    excerpt: "Creiamo l’atmosfera perfetta per la tua cerimonia, ambienti curati nei minimi particolari.",
+    excerpt:
+      "Creiamo l’atmosfera perfetta per la tua cerimonia, ambienti curati nei minimi particolari.",
     body: [
       "Dalla scenografia floreale alla logistica, ogni momento viene orchestrato perché tu viva emozioni autentiche e senza stress.",
       "Allestimenti cerimonia a Milano e in tutta Italia, pensati per ambienti sacri, civili e simbolici.",
     ],
     image: "/images/garden.jpg",
-    gallery: ["/images/garden.jpg", "/images/ceremony2.jpg", "/images/bouquet.jpg", "/images/peony.jpg"],
+    gallery: [
+      "/images/garden.jpg",
+      "/images/ceremony2.jpg",
+      "/images/bouquet.jpg",
+      "/images/peony.jpg",
+    ],
   },
   {
     slug: "fiori",
@@ -124,13 +139,19 @@ export const SERVICES: Service[] = [
       "I fiori trasformano l’atmosfera, parlano al cuore e rendono ogni momento unico e indimenticabile.",
     ],
     image: "/images/bouquet.jpg",
-    gallery: ["/images/bouquet.jpg", "/images/peony.jpg", "/images/garden.jpg", "/images/hero-1.jpg"],
+    gallery: [
+      "/images/bouquet.jpg",
+      "/images/peony.jpg",
+      "/images/garden.jpg",
+      "/images/hero-1.jpg",
+    ],
   },
   {
     slug: "auto",
     title: "Auto di Lusso",
     short: "Scopri",
-    excerpt: "Auto da sogno, eleganza senza tempo e un’entrata che nessuno dimenticherà.",
+    excerpt:
+      "Auto da sogno, eleganza senza tempo e un’entrata che nessuno dimenticherà.",
     body: [
       "Noleggio auto di lusso per matrimoni ed eventi. Lascia che ci occupiamo di tutto.",
       "Un’icona d’altri tempi, con fascino retrò e dettagli curati, può aggiungere un tocco cinematografico al grande giorno — come per Diana & André, trasformando ogni spostamento in un momento da ricordare.",
@@ -143,7 +164,8 @@ export const SERVICES: Service[] = [
     slug: "bellezza",
     title: "Make-up & Bellezza",
     short: "Scopri",
-    excerpt: "Look luminoso e naturale per il tuo grande giorno, con durata, eleganza e comfort.",
+    excerpt:
+      "Look luminoso e naturale per il tuo grande giorno, con durata, eleganza e comfort.",
     body: [
       "I nostri make-up artist e hair stylist professionisti valorizzano i tuoi tratti, assicurando un make-up che resiste alle emozioni, alle foto e al ballo.",
     ],
@@ -153,7 +175,8 @@ export const SERVICES: Service[] = [
     slug: "musica",
     title: "Musica & DJ",
     short: "Scopri",
-    excerpt: "Gruppi live, DJ professionisti, musicisti classici o band moderne: ogni evento ha la sua colonna sonora.",
+    excerpt:
+      "Gruppi live, DJ professionisti, musicisti classici o band moderne: ogni evento ha la sua colonna sonora.",
     body: [
       "Accendi la festa con performance musicali su misura, per emozionare e coinvolgere i tuoi ospiti.",
       "La disponibilità di alcuni gruppi o artisti può variare in base alla data, alla location e alla logistica tecnica.",
@@ -164,7 +187,8 @@ export const SERVICES: Service[] = [
     slug: "video",
     title: "Video & Storytelling",
     short: "Scopri",
-    excerpt: "I nostri videomaker catturano l’essenza del tuo evento in immagini emozionali.",
+    excerpt:
+      "I nostri videomaker catturano l’essenza del tuo evento in immagini emozionali.",
     body: [
       "Montaggi creativi, storytelling su misura e riprese professionali per rivivere ogni attimo con emozione.",
     ],
@@ -174,7 +198,8 @@ export const SERVICES: Service[] = [
     slug: "battesimi",
     title: "Battesimi",
     short: "Scopri",
-    excerpt: "Celebra il battesimo del tuo bambino con raffinatezza ed emozione.",
+    excerpt:
+      "Celebra il battesimo del tuo bambino con raffinatezza ed emozione.",
     body: [
       "Dall’allestimento alla torta, ogni dettaglio è curato per creare un giorno unico, in armonia con la tua visione e lo stile del tuo evento.",
     ],
@@ -184,7 +209,8 @@ export const SERVICES: Service[] = [
     slug: "comunioni",
     title: "Prime Comunioni",
     short: "Scopri",
-    excerpt: "Rendi speciale il giorno della Prima Comunione del tuo bambino.",
+    excerpt:
+      "Rendi speciale il giorno della Prima Comunione del tuo bambino.",
     body: [
       "Dal coordinato all’intrattenimento, progettiamo cerimonie ed eventi eleganti, adatti alle famiglie che cercano emozione e semplicità.",
     ],
@@ -194,7 +220,8 @@ export const SERVICES: Service[] = [
     slug: "compleanni",
     title: "Compleanni",
     short: "Scopri",
-    excerpt: "Festeggia con stile, divertimento e originalità.",
+    excerpt:
+      "Festeggia con stile, divertimento e originalità.",
     body: [
       "Progettiamo eventi tematici, allestimenti personalizzati e intrattenimento su misura per adulti e bambini, con cura su ogni dettaglio.",
     ],
@@ -204,7 +231,8 @@ export const SERVICES: Service[] = [
     slug: "generazione-z",
     title: "Generazione Z",
     short: "Scopri",
-    excerpt: "Celebrazioni libere, autentiche e contemporanee: il nostro approccio Gen Z rompe gli schemi.",
+    excerpt:
+      "Celebrazioni libere, autentiche e contemporanee: il nostro approccio Gen Z rompe gli schemi.",
     body: [
       "Dimentica gli schemi, le regole imposte e i soliti riti. Il vostro matrimonio non deve assomigliare a quello di nessun altro.",
       "Team creativi, scelte fuori dagli stereotipi, esperienza personalizzata e piena libertà espressiva.",
@@ -215,7 +243,8 @@ export const SERVICES: Service[] = [
     slug: "budget",
     title: "Budget & Coordinamento",
     short: "Scopri",
-    excerpt: "Pianificazione del budget, selezione fornitori e coordinamento end-to-end.",
+    excerpt:
+      "Pianificazione del budget, selezione fornitori e coordinamento end-to-end.",
     body: [
       "Dalla prima visione al dettaglio finale, curo ogni aspetto per regalarvi un giorno senza pensieri.",
       "Ascolto i vostri desideri per tradurli in realtà, rispettando priorità e investimento, senza rinunciare allo stile.",
@@ -313,22 +342,71 @@ export function getService(slug: string) {
   if (slug === "location") {
     return FEATURED_SERVICES.find((s) => s.slug === "location");
   }
+
   return SERVICES.find((s) => s.slug === slug);
 }
 
 export const FLOWERS = [
-  { name: "Rosa", meaning: "Amore, bellezza e promessa che sboccia ogni giorno.", months: "Tutto l’anno" },
-  { name: "Peonia", meaning: "Prosperità, romanticismo e un amore pieno.", months: "Aprile – Giugno" },
-  { name: "Ranuncolo", meaning: "Fascino, grazia e amore sincero.", months: "Primavera" },
-  { name: "Anemone", meaning: "Rinascita, nuovi inizi e passione che resiste al tempo.", months: "Primavera" },
-  { name: "Elleboro", meaning: "Resilienza e protezione silenziosa.", months: "Inverno" },
-  { name: "Gardenia", meaning: "Amore puro, grazia e pace interiore.", months: "Estate" },
-  { name: "Giglio", meaning: "Maestà, purezza e rinnovamento.", months: "Primavera – Estate" },
-  { name: "Iris", meaning: "Saggezza, fede e nobiltà d’animo.", months: "Maggio – Giugno" },
-  { name: "Girasole", meaning: "Gioia, fedeltà e vitalità.", months: "Luglio" },
-  { name: "Dalia", meaning: "Eleganza, creatività e legame duraturo.", months: "Agosto – Settembre" },
-  { name: "Crisantemo", meaning: "Longevità, rispetto e ottimismo.", months: "Novembre" },
-  { name: "Camelia", meaning: "Amore raffinato, perfezione e costanza.", months: "Inverno" },
+  {
+    name: "Rosa",
+    meaning: "Amore, bellezza e promessa che sboccia ogni giorno.",
+    months: "Tutto l’anno",
+  },
+  {
+    name: "Peonia",
+    meaning: "Prosperità, romanticismo e un amore pieno.",
+    months: "Aprile – Giugno",
+  },
+  {
+    name: "Ranuncolo",
+    meaning: "Fascino, grazia e amore sincero.",
+    months: "Primavera",
+  },
+  {
+    name: "Anemone",
+    meaning: "Rinascita, nuovi inizi e passione che resiste al tempo.",
+    months: "Primavera",
+  },
+  {
+    name: "Elleboro",
+    meaning: "Resilienza e protezione silenziosa.",
+    months: "Inverno",
+  },
+  {
+    name: "Gardenia",
+    meaning: "Amore puro, grazia e pace interiore.",
+    months: "Estate",
+  },
+  {
+    name: "Giglio",
+    meaning: "Maestà, purezza e rinnovamento.",
+    months: "Primavera – Estate",
+  },
+  {
+    name: "Iris",
+    meaning: "Saggezza, fede e nobiltà d’animo.",
+    months: "Maggio – Giugno",
+  },
+  {
+    name: "Girasole",
+    meaning: "Gioia, fedeltà e vitalità.",
+    months: "Luglio",
+  },
+  {
+    name: "Dalia",
+    meaning: "Eleganza, creatività e legame duraturo.",
+    months: "Agosto – Settembre",
+  },
+  {
+    name: "Crisantemo",
+    meaning: "Longevità, rispetto e ottimismo.",
+    months: "Novembre",
+  },
+  {
+    name: "Camelia",
+    meaning: "Amore raffinato, perfezione e costanza.",
+    months: "Inverno",
+  },
 ];
 
 export type PortfolioAlbum = {
@@ -353,29 +431,65 @@ export const PORTFOLIO: PortfolioAlbum[] = [
       "Realizza il matrimonio dei tuoi sogni a Milano e in tutta Italia con Timeless Events.",
       "Ci occupiamo di ogni dettaglio, dall’abito alla location, per un giorno perfetto. La favola ha inizio… e questa è solo la prima pagina.",
     ],
-    image: "/images/couple.jpg",
+    image: "/images/diana-andre-01.jpg",
     galleries: [
       {
         title: "Diana e André",
         caption: "Fotografo Angelo Maci",
         photos: [
-          { src: "/images/couple.jpg", caption: "Le mani si intrecciano, le anime si riconoscono." },
-          { src: "/images/hands.jpg", caption: "Mi hai guardato come se fossi l’unica al mondo." },
-          { src: "/images/dress-2.jpg", caption: "La favola ha inizio… e questa è solo la prima pagina." },
-          { src: "/images/car.jpg", caption: "Eleganza senza tempo su quattro ruote." },
-          { src: "/images/ceremony2.jpg", caption: "Un momento di pura pace, tra emozione e respiro." },
-          { src: "/images/garden.jpg", caption: "E quando il giorno si spegne, resta la magia dell’amore." },
+          {
+            src: "/images/diana-andre-01.jpg",
+            caption: "Le mani si intrecciano, le anime si riconoscono.",
+          },
+          {
+            src: "/images/diana-andre-02.jpg",
+            caption: "Mi hai guardato come se fossi l’unica al mondo.",
+          },
+          {
+            src: "/images/diana-andre-03.jpg",
+            caption: "La favola ha inizio… e questa è solo la prima pagina.",
+          },
+          {
+            src: "/images/diana-andre-04.jpg",
+            caption: "Eleganza senza tempo su quattro ruote.",
+          },
+          {
+            src: "/images/diana-andre-05.jpg",
+            caption: "Un momento di pura pace, tra emozione e respiro.",
+          },
+          {
+            src: "/images/diana-andre-06.jpg",
+            caption: "E quando il giorno si spegne, resta la magia dell’amore.",
+          },
         ],
       },
       {
         title: "Desi & Augusto",
         photos: [
-          { src: "/images/bride.jpg", caption: "Mi hai reso sposa, ma prima ancora regina del tuo cuore." },
-          { src: "/images/hero-2.jpg", caption: "Quando ti ho vista… ho capito che avevo già vinto." },
-          { src: "/images/toast.jpg", caption: "Questa giornata è il nostro sì al futuro, alla luce, alla vita." },
-          { src: "/images/hero-3.jpg", caption: "Ci siamo detti tutto, senza bisogno di parole." },
-          { src: "/images/table-close.jpg", caption: "Ogni passo verso di te era una carezza al cuore." },
-          { src: "/images/rings2.jpg", caption: "Con quel sì, ho promesso di proteggerti, sorriderti, amarti." },
+          {
+            src: "/images/desi-augusto-01.jpg",
+            caption: "Mi hai reso sposa, ma prima ancora regina del tuo cuore.",
+          },
+          {
+            src: "/images/desi-augusto-02.jpg",
+            caption: "Quando ti ho vista… ho capito che avevo già vinto.",
+          },
+          {
+            src: "/images/desi-augusto-03.jpg",
+            caption: "Questa giornata è il nostro sì al futuro, alla luce, alla vita.",
+          },
+          {
+            src: "/images/desi-augusto-04.jpg",
+            caption: "Ci siamo detti tutto, senza bisogno di parole.",
+          },
+          {
+            src: "/images/desi-augusto-05.jpg",
+            caption: "Ogni passo verso di te era una carezza al cuore.",
+          },
+          {
+            src: "/images/desi-augusto-06.jpg",
+            caption: "Con quel sì, ho promesso di proteggerti, sorriderti, amarti.",
+          },
         ],
       },
     ],
@@ -393,12 +507,30 @@ export const PORTFOLIO: PortfolioAlbum[] = [
       {
         title: "Ville, laghi e dimore",
         photos: [
-          { src: "/images/villa.jpg", caption: "Ville d’epoca e dimore storiche, selezionate per il tuo evento." },
-          { src: "/images/italy-villa.jpg", caption: "Una cornice italiana, tra luce e pietra antica." },
-          { src: "/images/como.jpg", caption: "Lago di Como: il palcoscenico perfetto per un giorno speciale." },
-          { src: "/images/lisbon.jpg", caption: "Lisboa: luce atlantica e romanticismo senza tempo." },
-          { src: "/images/ballroom.jpg", caption: "Sale da ballo, lampadari e mise en place da sogno." },
-          { src: "/images/garden.jpg", caption: "Giardini affacciati sull’acqua, tra verde e blu." },
+          {
+            src: "/images/villa.jpg",
+            caption: "Ville d’epoca e dimore storiche, selezionate per il tuo evento.",
+          },
+          {
+            src: "/images/italy-villa.jpg",
+            caption: "Una cornice italiana, tra luce e pietra antica.",
+          },
+          {
+            src: "/images/como.jpg",
+            caption: "Lago di Como: il palcoscenico perfetto per un giorno speciale.",
+          },
+          {
+            src: "/images/lisbon.jpg",
+            caption: "Lisboa: luce atlantica e romanticismo senza tempo.",
+          },
+          {
+            src: "/images/ballroom.jpg",
+            caption: "Sale da ballo, lampadari e mise en place da sogno.",
+          },
+          {
+            src: "/images/garden.jpg",
+            caption: "Giardini affacciati sull’acqua, tra verde e blu.",
+          },
         ],
       },
     ],
@@ -416,12 +548,30 @@ export const PORTFOLIO: PortfolioAlbum[] = [
       {
         title: "Allestimenti corporate",
         photos: [
-          { src: "/images/corporate.jpg", caption: "Design e comfort si fondono per il massimo coinvolgimento." },
-          { src: "/images/tables.jpg", caption: "Eleganza e funzionalità nell’allestimento perfetto." },
-          { src: "/images/venue-night.jpg", caption: "Un’atmosfera raffinata, pensata per il massimo impatto." },
-          { src: "/images/toast.jpg", caption: "Un setting curato nei minimi dettagli." },
-          { src: "/images/ballroom-gold.jpg", caption: "Un allestimento che trasforma ogni spazio in un’esperienza." },
-          { src: "/images/fine-dining.jpg", caption: "La bellezza incontra la praticità." },
+          {
+            src: "/images/corporate.jpg",
+            caption: "Design e comfort si fondono per il massimo coinvolgimento.",
+          },
+          {
+            src: "/images/tables.jpg",
+            caption: "Eleganza e funzionalità nell’allestimento perfetto.",
+          },
+          {
+            src: "/images/venue-night.jpg",
+            caption: "Un’atmosfera raffinata, pensata per il massimo impatto.",
+          },
+          {
+            src: "/images/toast.jpg",
+            caption: "Un setting curato nei minimi dettagli.",
+          },
+          {
+            src: "/images/ballroom-gold.jpg",
+            caption: "Un allestimento che trasforma ogni spazio in un’esperienza.",
+          },
+          {
+            src: "/images/fine-dining.jpg",
+            caption: "La bellezza incontra la praticità.",
+          },
         ],
       },
     ],
@@ -471,7 +621,7 @@ export const TRENDS_2026 = {
 };
 
 export const ABOUT = {
-  headline: "Elisabete Tavares: la tua wedding planner di fiducia a Milano e non solo.",
+  headline: "La tua wedding planner di fiducia.",
   kicker: "La mia storia e la visione di Timeless Events",
   portrait: "/images/fondatrice.jpg",
   paragraphs: [
@@ -516,3 +666,4 @@ export const QUOTES = [
     stars: 5,
   },
 ];
+
