@@ -23,6 +23,7 @@ export function Gallery({
                 src={p.src}
                 alt={p.caption ?? ""}
                 className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+style={i === 0 || i === 2 || i === 5 ? { objectPosition: "center 40%" } : undefined}
               />
             </div>
             {p.caption ? (
