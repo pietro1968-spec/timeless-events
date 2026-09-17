@@ -67,7 +67,7 @@ function Home() {
           <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
             {SITE.name}: wedding planner a {SITE.city}
           </h2>
-          <p className="mt-5 font-display text-xl italic text-ink-soft">{QUOTES[0].text}</p>
+          <p className="mt-5 font-display text-xl italic text-ink-soft">{QUOTES[0]?.quote || QUOTES[0]?.text}</p>
           <p className="mt-5 text-sm leading-relaxed text-muted">{ABOUT.paragraphs[0]}</p>
           <p className="mt-4 text-sm leading-relaxed text-muted">{ABOUT.paragraphs[1]}</p>
           <Link
@@ -132,33 +132,66 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 py-20 text-center lg:px-8">
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold">Dicono di noi</p>
-        <h2 className="mt-3 font-display text-4xl">Le vostre recensioni</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-muted">
-          Dalla prima visione al dettaglio finale, curo ogni aspetto per regalarvi un giorno senza pensieri.
-        </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {QUOTES.map((q) => (
-            <blockquote key={q.author} className="rounded-2xl border border-line bg-paper px-6 py-8">
-              <p className="font-display text-lg italic leading-relaxed text-ink-soft">&ldquo;{q.text}&rdquo;</p>
-              <footer className="mt-4 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-gold">
-                {q.author}
-              </footer>
-            </blockquote>
-          ))}
-        </div>
-        <div className="mt-12">
-          <p className="font-display text-2xl">Sei pronto/a a fare il grande passo?</p>
-          <p className="mt-2 text-sm text-muted">
-            Ascolto i vostri desideri per tradurli in realtà. Insieme costruiremo l'atmosfera magica che avete sempre immaginato.
+      {/* SEZIONE DICONO DI NOI / RECENSIONI */}
+      <section className="bg-cream/50 py-20">
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-gold">Dicono di noi</p>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl">Le vostre recensioni</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted">
+            Dalla prima visione al dettaglio finale, curo ogni aspetto per regalarvi un giorno senza pensieri.
           </p>
-          <Link
-            to="/preventivo"
-            className="mt-6 inline-flex rounded-full bg-ink px-8 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ivory"
-          >
-            Inizia da qui
-          </Link>
+
+          {/* Slider Scorrevole */}
+          <div className="mt-12 flex gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-gold/30">
+            {QUOTES.map((q, idx) => (
+              <blockquote
+                key={idx}
+                className="w-[300px] shrink-0 snap-center rounded-2xl border border-line bg-paper p-6 text-left shadow-sm transition-transform hover:-translate-y-1 sm:w-[350px]"
+              >
+                <div className="flex items-center gap-1 text-gold mb-3">
+                  {Array.from({ length: q.stars || 5 }).map((_, i) => (
+                    <span key={i} className="text-base">★</span>
+                  ))}
+                </div>
+                <p className="font-display text-base italic leading-relaxed text-ink-soft">
+                  &ldquo;{q.quote || q.text}&rdquo;
+                </p>
+                <footer className="mt-6 border-t border-line/60 pt-4">
+                  <p className="text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-gold">
+                    {q.author}
+                  </p>
+                  {q.event && (
+                    <p className="text-[0.68rem] text-muted font-light mt-0.5">{q.event}</p>
+                  )}
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+
+          {/* Invito a lasciare una recensione su Google */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://www.google.com/maps/place//@45.6042778,9.1471772,14z/data=!3m1!4b1!4m3!3m2!1s0x67fb5f0569c8edcd:0xd03ac7a0c0b13867!12e1?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-gold/80 bg-paper px-6 py-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink shadow-sm hover:bg-gold hover:text-ink transition-colors"
+            >
+              <span>⭐ Lascia una recensione su Google</span>
+            </a>
+          </div>
+
+          <div className="mt-16 border-t border-line/60 pt-12">
+            <p className="font-display text-2xl sm:text-3xl">Sei pronto/a a fare il grande passo?</p>
+            <p className="mt-2 text-sm text-muted max-w-xl mx-auto">
+              Ascolto i vostri desideri per tradurli in realtà. Insieme costruiremo l'atmosfera magica che avete sempre immaginato.
+            </p>
+            <Link
+              to="/preventivo"
+              className="mt-6 inline-flex rounded-full bg-ink px-8 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ivory hover:bg-gold hover:text-ink transition-colors"
+            >
+              Inizia da qui
+            </Link>
+          </div>
         </div>
       </section>
     </main>

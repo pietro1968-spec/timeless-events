@@ -11,7 +11,7 @@ export const SITE = {
   instagram: "https://www.instagram.com/timelesseventstavares",
   facebook: "https://www.facebook.com/p/Elisabete-Carreta-Tavares-61566576951521/",
   youtube: "https://www.youtube.com/@timelessevents-",
-  googleReview: "https://g.page/r/CWc4scCgxzrQEAE/review",
+  googleReview: "https://www.google.com/maps/place//@45.6042778,9.1471772,14z/data=!3m1!4b1!4m3!3m2!1s0x67fb5f0569c8edcd:0xd03ac7a0c0b13867!12e1?entry=ttu",
   treeNation: "https://tree-nation.com",
 } as const;
 
@@ -473,7 +473,7 @@ export const TRENDS_2026 = {
 export const ABOUT = {
   headline: "Elisabete Tavares: la tua wedding planner di fiducia a Milano e non solo.",
   kicker: "La mia storia e la visione di Timeless Events",
-  portrait: "/images/planner.jpg",
+  portrait: "/images/fondatrice.jpg",
   paragraphs: [
     "Mi chiamo Elisabete Tavares, fondatrice di Timeless Events, un’azienda con sede a Milano, una professionista appassionata di eventi, con 14 anni di esperienza nel settore.",
     "La mia carriera è iniziata nel mondo del catering, dove ho appreso l’importanza di ogni dettaglio e la gioia di creare eventi straordinari.",
@@ -500,13 +500,19 @@ export const QUOTES = [
   {
     text: "Non organizzo solo eventi, custodisco i vostri ricordi più preziosi.",
     author: "Elisabete Tavares",
+    event: "Fondatrice Timeless Events",
+    stars: 5,
   },
   {
-    text: "Mi hai guardato come se fossi l’unica al mondo. E io, lo sono.",
+    text: "Mi hai guardato come se fossi l’unica al mondo. Elisabete ha curato ogni dettaglio rendendo la nostra giornata una vera favola.",
     author: "Diana & André",
+    event: "Matrimonio",
+    stars: 5,
   },
   {
-    text: "Quando ti ho vista… ho capito che avevo già vinto.",
+    text: "Quando ti ho vista… ho capito che avevo già vinto. Un'organizzazione impeccabile dall'inizio alla fine.",
     author: "Desi & Augusto",
+    event: "Matrimonio",
+    stars: 5,
   },
 ];
