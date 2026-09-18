@@ -20,6 +20,7 @@ import { Route as ServiziRouteImport } from './routes/servizi'
 import { Route as SostenibilitaRouteImport } from './routes/sostenibilita'
 import { Route as ChiSonoIndexRouteImport } from './routes/chi-sono.index'
 import { Route as ChiSonoFaqRouteImport } from './routes/chi-sono.faq'
+import { Route as FioriSlugRouteImport } from './routes/fiori.$slug'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as ServiziIndexRouteImport } from './routes/servizi.index'
@@ -80,6 +81,11 @@ const ChiSonoFaqRoute = ChiSonoFaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => ChiSonoRoute,
 } as any)
+const FioriSlugRoute = FioriSlugRouteImport.update({
+  id: '/fiori/$slug',
+  path: '/fiori/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/servizi': typeof ServiziRouteWithChildren
   '/sostenibilita': typeof SostenibilitaRoute
   '/chi-sono/faq': typeof ChiSonoFaqRoute
+  '/fiori/$slug': typeof FioriSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/servizi/$slug': typeof ServiziSlugRoute
   '/chi-sono/': typeof ChiSonoIndexRoute
@@ -126,6 +133,7 @@ export interface FileRoutesByTo {
   '/promozioni': typeof PromozioniRoute
   '/sostenibilita': typeof SostenibilitaRoute
   '/chi-sono/faq': typeof ChiSonoFaqRoute
+  '/fiori/$slug': typeof FioriSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/servizi/$slug': typeof ServiziSlugRoute
   '/chi-sono': typeof ChiSonoIndexRoute
@@ -144,6 +152,7 @@ export interface FileRoutesById {
   '/servizi': typeof ServiziRouteWithChildren
   '/sostenibilita': typeof SostenibilitaRoute
   '/chi-sono/faq': typeof ChiSonoFaqRoute
+  '/fiori/$slug': typeof FioriSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/servizi/$slug': typeof ServiziSlugRoute
   '/chi-sono/': typeof ChiSonoIndexRoute
@@ -163,6 +172,7 @@ export interface FileRouteTypes {
     | '/servizi'
     | '/sostenibilita'
     | '/chi-sono/faq'
+    | '/fiori/$slug'
     | '/portfolio/$slug'
     | '/servizi/$slug'
     | '/chi-sono/'
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/promozioni'
     | '/sostenibilita'
     | '/chi-sono/faq'
+    | '/fiori/$slug'
     | '/portfolio/$slug'
     | '/servizi/$slug'
     | '/chi-sono'
@@ -194,6 +205,7 @@ export interface FileRouteTypes {
     | '/servizi'
     | '/sostenibilita'
     | '/chi-sono/faq'
+    | '/fiori/$slug'
     | '/portfolio/$slug'
     | '/servizi/$slug'
     | '/chi-sono/'
@@ -211,6 +223,7 @@ export interface RootRouteChildren {
   PromozioniRoute: typeof PromozioniRoute
   ServiziRoute: typeof ServiziRouteWithChildren
   SostenibilitaRoute: typeof SostenibilitaRoute
+  FioriSlugRoute: typeof FioriSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -291,6 +304,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/chi-sono/faq'
       preLoaderRoute: typeof ChiSonoFaqRouteImport
       parentRoute: typeof ChiSonoRoute
+    }
+    '/fiori/$slug': {
+      id: '/fiori/$slug'
+      path: '/fiori/$slug'
+      fullPath: '/fiori/$slug'
+      preLoaderRoute: typeof FioriSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/portfolio/': {
       id: '/portfolio/'
@@ -373,6 +393,7 @@ const rootRouteChildren: RootRouteChildren = {
   PromozioniRoute: PromozioniRoute,
   ServiziRoute: ServiziRouteWithChildren,
   SostenibilitaRoute: SostenibilitaRoute,
+  FioriSlugRoute: FioriSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
